@@ -28,9 +28,11 @@ function renderQuotes() {
     var likeEl = document.createElement("img");
     var deleteEl = document.createElement("img");
 
-    quoteTextEl.textContent =
-      item.quoteText + " - " + item.quoteAuthor + " - " + item.quoteSource;
-    quoteLikesEl.textContent = "Likes: " + item.likes;
+  
+
+    
+  quoteLikesEl.textContent = "Likes: " + item.likes;
+
 
     likeEl.src = "love.png";
     likeEl.style = "width: 30px";

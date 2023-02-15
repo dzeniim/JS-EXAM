@@ -136,3 +136,12 @@ a {
   padding: 20px;
   color: #fff;
 }
+.sortingbuttons{
+  margin-left: 20px;
+  padding: 10px;
+  margin-bottom: 3px;
+  color: #a96851;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: antiquewhite;
+  border: none;
+}
