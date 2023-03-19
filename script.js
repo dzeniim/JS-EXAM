@@ -38,6 +38,8 @@ function renderQuotes() {
     likeEl.style = "width: 30px";
     likeEl.onclick = function () {
       likeQuote(item._id);
+
+     
     };
 
     deleteEl.src = "close.png";
@@ -54,6 +56,66 @@ function renderQuotes() {
     parentEl.appendChild(childEl);
   });
 }
+
+document.getElementById("sortASC").addEventListener("click",function (){
+  var parentEl= document.getElementById("list");
+  parentEl.innerHTML="";
+  var rast=[...allQuotes];
+  rast.sort(function(a,b){
+    return a.likes-b.likes
+  });
+    parentEl.innerHTML="";
+
+
+rast.forEach(function(item,index){
+  var parentEl = document.getElementById("list");
+  parentEl.innerHTML = "";
+  quotes.forEach(function (item, index) {
+    var childEl = document.createElement("li");
+    childEl.textContent = item.quoteText + " - " + item.quoteAuthor + " - " + item.quoteSource;
+    var quoteTextEl = document.createElement("p");
+    var quoteLikesEl = document.createElement("p");
+    var likeEl = document.createElement("img");
+    var deleteEl = document.createElement("img");
+
+  
+
+    
+  quoteLikesEl.textContent = "Likes: " + item.likes;
+
+
+    likeEl.src = "love.png";
+    likeEl.style = "width: 30px";
+    likeEl.onclick = function () {
+      likeQuote(item._id);
+
+     
+    };
+
+    deleteEl.src = "close.png";
+    deleteEl.style = "width: 30px";
+    deleteEl.onclick = function () {
+      deleteQuote(item._id);
+    };
+
+    childEl.appendChild(quoteTextEl);
+    childEl.appendChild(quoteLikesEl);
+    childEl.appendChild(likeEl);
+    childEl.appendChild(deleteEl);
+
+    parentEl.appendChild(childEl);
+});
+
+
+});
+});
+
+
+
+
+
+
+
 
 fetch("https://js-course-server.onrender.com/quotes/get-all-quotes")
   .then(function (response) {
